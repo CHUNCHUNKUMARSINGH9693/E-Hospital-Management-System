@@ -21,7 +21,7 @@ const OnlinePharmacy = () => {
 
   const handleSearch = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/searchMedicine?search=${searchTerm}`);
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/searchMedicine?search=${searchTerm}`);
       const medicines = await response.json();
 
       if (medicines.length > 0) {
@@ -83,7 +83,7 @@ const OnlinePharmacy = () => {
     try {
       console.log('Processing payment with:', paymentInfo);
 
-      await fetch('http://localhost:5000/updateQuantity', {
+      await fetch(process.env.REACT_APP_API_URL + '/updateQuantity', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -116,7 +116,7 @@ const OnlinePharmacy = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5000/medrequests', {
+      const response = await fetch(process.env.REACT_APP_API_URL + '/medrequests', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

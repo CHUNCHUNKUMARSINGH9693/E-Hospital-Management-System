@@ -5,7 +5,7 @@ const DoctorsModal = () => {
 
   useEffect(() => {
     // Fetch data from the backend API
-    fetch('http://localhost:5000/doctors')  // Assuming the backend is running on the same server at port 5000
+    fetch(process.env.REACT_APP_API_URL + '/doctors')  // Assuming the backend is running on the same server at port 5000
       .then(response => response.json())
       .then(data => setDoctorsData(data))
       .catch(error => console.error('Error fetching data:', error));

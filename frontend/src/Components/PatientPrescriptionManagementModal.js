@@ -12,7 +12,7 @@ const PatientPrescriptionManagementModal = () => {
 
     const handleDetails = async (cellNumber) => {
     try {
-      const response = await fetch(`http://localhost:5000/patientDetails/${cellNumber}`);
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/patientDetails/${cellNumber}`);
       const patient = await response.json();
 
       setSelectedPatient(patient);
@@ -30,7 +30,7 @@ const PatientPrescriptionManagementModal = () => {
         return;
       }
 
-      const response = await fetch(`http://localhost:5000/searchPatient?query=${searchInput}`);
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/searchPatient?query=${searchInput}`);
       
       if (!response.ok) {
         throw new Error(`Failed to fetch patient details. Status: ${response.status}`);
@@ -57,7 +57,7 @@ const PatientPrescriptionManagementModal = () => {
         return;
       }
 
-      const response = await fetch(`http://localhost:5000/updatePatientInfo/${searchInput}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/updatePatientInfo/${searchInput}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

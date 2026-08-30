@@ -48,7 +48,7 @@ const PatientHistory = () => {
   useEffect(() => {
     const fetchPatientData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/getPrescriptionsAndInstructions');
+        const response = await axios.get(process.env.REACT_APP_API_URL + '/getPrescriptionsAndInstructions');
         const { prescriptions, specialInstructions } = response.data;
 
         const combinedData = prescriptions.map((prescription, index) => ({

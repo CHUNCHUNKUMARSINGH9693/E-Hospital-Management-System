@@ -36,7 +36,7 @@ const Sidebar = () => {
     const fetchData = async () => {
       try {
         // Fetch user profile data from your backend API
-        const response = await axios.get('http://localhost:5000/fetchProfile');
+        const response = await axios.get(process.env.REACT_APP_API_URL + '/fetchProfile');
 
         // Set the user profile with the fetched data
         setUserProfile(response.data);
@@ -65,7 +65,7 @@ const Sidebar = () => {
     window.location.href = '/';
     try {
       // Send a request to the backend to indicate logout
-      await axios.post('http://localhost:5000/logout', { loggedOut: true });
+      await axios.post(process.env.REACT_APP_API_URL + '/logout', { loggedOut: true });
 
       // Navigate to the home page
       
@@ -76,7 +76,7 @@ const Sidebar = () => {
 
   const handleSaveClick = async () => {
     try {
-      await axios.put('http://localhost:5000/updateProfile', {
+      await axios.put(process.env.REACT_APP_API_URL + '/updateProfile', {
         username: userProfile.name,
         email: userProfile.email,
         role: userProfile.role,

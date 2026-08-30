@@ -21,7 +21,7 @@ const AppointmentForm = () => {
 
   const handleVerifyNumber = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/verifyNumber?cell=${formData.patientCell}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/verifyNumber?cell=${formData.patientCell}`);
 
       if (response.data.available) {
         setIsNumberAvailable(true);
@@ -41,10 +41,10 @@ const AppointmentForm = () => {
     try {
       if (isNumberAvailable) {
         // Number is available, proceed with creating appointment and updating PatientProfile
-        await axios.post('http://localhost:5000/Addappointments', formData);
+        await axios.post(process.env.REACT_APP_API_URL + '/Addappointments', formData);
 
         // Update PatientProfile with additional data
-        await axios.post('http://localhost:5000/PatientProfile', {
+        await axios.post(process.env.REACT_APP_API_URL + '/PatientProfile', {
           name: formData.patientName,
           cell: formData.patientCell,
           appointmentDate: formData.appointmentDate,

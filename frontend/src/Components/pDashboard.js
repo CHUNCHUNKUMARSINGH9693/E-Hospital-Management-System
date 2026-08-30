@@ -26,7 +26,7 @@ const PDashboard = ({ messages }) => {
 
   const generatePDF = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/generatePDF', { responseType: 'blob' });
+      const response = await axios.get(process.env.REACT_APP_API_URL + '/generatePDF', { responseType: 'blob' });
       const blob = new Blob([response.data], { type: 'application/pdf' });
       const link = document.createElement('a');
       link.href = window.URL.createObjectURL(blob);

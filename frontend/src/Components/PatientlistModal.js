@@ -10,7 +10,7 @@ const PatientListModal = () => {
 
   useEffect(() => {
     // Fetch patients from the backend
-    fetch('http://localhost:5000/patients')
+    fetch(process.env.REACT_APP_API_URL + '/patients')
       .then(response => response.json())
       .then(data => setPatients(data))
       .catch(error => console.error('Error fetching patients:', error));

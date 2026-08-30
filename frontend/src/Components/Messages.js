@@ -22,7 +22,7 @@ const Messages = ({ showPopup, togglePopup, handleDeleteMessage }) => {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const response = await fetch('http://localhost:5000/messages-list');
+        const response = await fetch(process.env.REACT_APP_API_URL + '/messages-list');
         const data = await response.json();
         setMessages(data.messages);
       } catch (error) {

@@ -36,7 +36,7 @@ function App() {
 
   const checkEmailApi = async () => {
     try {
-      const response = await fetch('http://localhost:5000/checkEmail');
+      const response = await fetch(process.env.REACT_APP_API_URL + '/checkEmail');
       const data = await response.json();
 
       console.log('API Response:', data);

@@ -18,7 +18,7 @@ const AppointmentManagementModal = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/appointments');
+        const response = await axios.get(process.env.REACT_APP_API_URL + '/appointments');
         setAppointments(response.data);
       } catch (error) {
         console.error('Error fetching appointments:', error);
@@ -30,7 +30,7 @@ const AppointmentManagementModal = () => {
 
   const handleDelete = async (appointmentId) => {
     try {
-      await axios.delete(`http://localhost:5000/Deleteappointments/${appointmentId}`);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/Deleteappointments/${appointmentId}`);
 
       setAppointments((prevAppointments) =>
         prevAppointments.filter((appointment) => appointment._id !== appointmentId)

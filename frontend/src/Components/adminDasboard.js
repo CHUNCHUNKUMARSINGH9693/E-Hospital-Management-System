@@ -32,7 +32,7 @@ const AdminDashboard = ({messages}) => {
 
   const generatePDF = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/generatePDF', { responseType: 'blob' });
+      const response = await axios.get(process.env.REACT_APP_API_URL + '/generatePDF', { responseType: 'blob' });
       const blob = new Blob([response.data], { type: 'application/pdf' });
       const link = document.createElement('a');
       link.href = window.URL.createObjectURL(blob);
@@ -81,7 +81,7 @@ const AdminDashboard = ({messages}) => {
 
   const handleAddAppointment = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/getTranscriptions');
+      const response = await axios.get(process.env.REACT_APP_API_URL + '/getTranscriptions');
       const transcriptions = response.data.transcriptions;
   
       if (transcriptions && transcriptions.length > 0) {
@@ -120,7 +120,7 @@ const AdminDashboard = ({messages}) => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/Addappointments', formData);
+      await axios.post(process.env.REACT_APP_API_URL + '/Addappointments', formData);
       console.log('Appointment added successfully');
       toggleModal();
       setFormData({

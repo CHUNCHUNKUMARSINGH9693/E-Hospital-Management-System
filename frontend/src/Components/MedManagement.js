@@ -58,7 +58,7 @@ const MedManagement = () => {
       return;
     }
 
-    fetch('http://localhost:5000/addMedicine', {
+    fetch(process.env.REACT_APP_API_URL + '/addMedicine', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ const MedManagement = () => {
   };
 
   const handleSearchMedicine = () => {
-    fetch(`http://localhost:5000/searchMedicine?search=${searchTerm}`)
+    fetch(`${process.env.REACT_APP_API_URL}/searchMedicine?search=${searchTerm}`)
       .then(response => response.json())
       .then(data => {
         console.log('Search results:', data);
@@ -109,7 +109,7 @@ const MedManagement = () => {
       return;
     }
 
-    fetch(`http://localhost:5000/removeMedicine/${medname}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/removeMedicine/${medname}`, {
       method: 'DELETE',
     })
       .then(response => response.json())

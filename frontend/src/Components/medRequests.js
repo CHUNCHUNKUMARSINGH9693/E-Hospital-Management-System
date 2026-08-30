@@ -6,7 +6,7 @@ const MedRequests = () => {
 
   useEffect(() => {
     // Fetch data from the backend API endpoint
-    axios.get('http://localhost:5000/viewMedreq')  // Update with your backend API URL
+    axios.get(process.env.REACT_APP_API_URL + '/viewMedreq')  // Update with your backend API URL
       .then(response => {
         setMedicineRequests(response.data);
       })

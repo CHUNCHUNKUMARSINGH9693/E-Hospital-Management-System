@@ -13,7 +13,7 @@ const UserManagementModal = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch('http://localhost:5000/usersList');
+      const response = await fetch(process.env.REACT_APP_API_URL + '/usersList');
       const data = await response.json();
       setUsers(data.users);
     } catch (error) {
@@ -32,7 +32,7 @@ const UserManagementModal = () => {
 
       console.log('Deleting user with email:', userEmail);
 
-      const response = await fetch(`http://localhost:5000/Deleteusers/${userEmail}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/Deleteusers/${userEmail}`, {
         method: 'DELETE',
       });
 

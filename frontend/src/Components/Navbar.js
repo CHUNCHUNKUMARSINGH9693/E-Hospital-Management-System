@@ -20,7 +20,7 @@ const Navbar = () => {
 
   const checkEmailApi = async () => {
     try {
-      const response = await fetch('http://localhost:5000/checkEmail');
+      const response = await fetch(process.env.REACT_APP_API_URL + '/checkEmail');
 
       console.log('Response status:', response.status);
 

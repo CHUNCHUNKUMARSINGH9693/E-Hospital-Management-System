@@ -27,7 +27,7 @@ const Register = () => {
       }
 
       // Perform registration
-      const response = await axios.post('http://localhost:5000/register', {
+      const response = await axios.post(process.env.REACT_APP_API_URL + '/register', {
         username,
         email,
         password,
@@ -40,7 +40,7 @@ const Register = () => {
 
       // If the selected role is "Patient," call the PatientProfile API
       if (selectedRole === 'Patient') {
-        const patientProfileResponse = await axios.post('http://localhost:5000/PatientProfile', {
+        const patientProfileResponse = await axios.post(process.env.REACT_APP_API_URL + '/PatientProfile', {
           name: username,
           cell: cellNumber,
           // Add other relevant fields as needed

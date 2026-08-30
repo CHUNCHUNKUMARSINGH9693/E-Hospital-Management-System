@@ -12,7 +12,7 @@ const NewMessage = () => {
     // Fetch the logged-in user's email when the component mounts
     const fetchSenderEmail = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/checkEmail');
+        const response = await axios.get(process.env.REACT_APP_API_URL + '/checkEmail');
         setSenderEmail(response.data.email);
       } catch (error) {
         console.error('Error fetching user email:', error);
@@ -32,7 +32,7 @@ const NewMessage = () => {
         return;
       }
 
-      const response = await axios.post('http://localhost:5000/messages', {
+      const response = await axios.post(process.env.REACT_APP_API_URL + '/messages', {
         sender: senderEmail,
         recipient,
         message: messageText,

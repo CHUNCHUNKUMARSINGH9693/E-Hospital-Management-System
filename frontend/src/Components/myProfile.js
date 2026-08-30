@@ -18,7 +18,7 @@ const MyProfile = ({ isLoggedIn }) => {
 
   const fetchProfile = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/fetchProfileP');
+      const response = await axios.get(process.env.REACT_APP_API_URL + '/fetchProfileP');
       
       if (response.status === 200) {
         setProfileData(response.data);
@@ -42,7 +42,7 @@ const MyProfile = ({ isLoggedIn }) => {
 
   const handleUpdateClick = async () => {
     try {
-      const response = await axios.put('http://localhost:5000/updateProfileP', {
+      const response = await axios.put(process.env.REACT_APP_API_URL + '/updateProfileP', {
         username: profileData.username,
         email: profileData.email,
         password: profileData.password,

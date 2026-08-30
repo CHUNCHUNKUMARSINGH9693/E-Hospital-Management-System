@@ -9,7 +9,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/login', { email, password });
+      const response = await axios.post(process.env.REACT_APP_API_URL + '/login', { email, password });
       console.log(response.data);
 
       // Check the role and navigate accordingly

@@ -84,7 +84,7 @@ const Vasistant = () => {
 
     const handleSendClick = async () => {
         try {
-            await fetch('http://localhost:5000/saveTranscription', {
+            await fetch(process.env.REACT_APP_API_URL + '/saveTranscription', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ transcription }),
