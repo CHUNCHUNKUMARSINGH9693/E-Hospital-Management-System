@@ -45,7 +45,7 @@ E-Hospital-Management-System/
 Create a `.env` file inside the `backend` folder:
 ```env
 PORT=5000
-MONGODB_URI=mongodb://localhost:27017/Ehospital
+MONGODB_URI=
 JWT_SECRET=your_jwt_secret
 ```
 
