@@ -8,7 +8,7 @@ The system allows patients to register, book doctor appointments, manage prescri
 
 ## 🚀 Live Demo
 
-🌐 **Live Website:** (https://e-hospital-management-system-2mwu.vercel.app/)
+🌐 **Live Website:** https://e-hospital-management-system-2mwu.vercel.app/
 
 📦 **GitHub Repository:**
 https://github.com/CHUNCHUNKUMARSINGH9693/E-Hospital-Management-System
