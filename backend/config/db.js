@@ -1,11 +1,15 @@
+```js
 const mongoose = require('mongoose');
 
 const connectDB = async () => {
   try {
-    await mongoose.connect('mongodb://localhost:27017/Ehospital', {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    const connUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/Ehospital';
+    if (!connUri) {
+      throw new Error('MONGODB_URI is not defined');
+    }
+
+    await mongoose.connect(connUri);
+
     console.log('MongoDB Connected...');
   } catch (err) {
     console.error('Database connection error:', err.message);
@@ -14,3 +18,4 @@ const connectDB = async () => {
 };
 
 module.exports = connectDB;
+```

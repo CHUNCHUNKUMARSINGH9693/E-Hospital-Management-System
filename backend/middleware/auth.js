@@ -4,7 +4,8 @@ const authenticateToken = (req, res, next) => {
   const token = req.header('Authorization');
   if (!token) return res.status(401).json({ message: 'Unauthorized' });
 
-  jwt.verify(token, 'your_jwt_secret', (err, user) => {
+  const secret = process.env.JWT_SECRET || 'your_jwt_secret';
+  jwt.verify(token, secret, (err, user) => {
     if (err) return res.status(403).json({ message: 'Forbidden' });
 
     req.user = user;
