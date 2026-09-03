@@ -427,7 +427,7 @@ After deploying the backend, update the frontend API URL to point to the deploye
 
 * GitHub: https://github.com/CHUNCHUNKUMARSINGH9693
 * Portfolio: Add your portfolio URL
-* LinkedIn: Add your LinkedIn URL
+* LinkedIn: https://www.linkedin.com/in/chunchun-kumar-singh-a05478282/
 
 ---
 
